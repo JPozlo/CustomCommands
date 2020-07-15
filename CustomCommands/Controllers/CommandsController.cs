@@ -12,7 +12,12 @@ namespace CustomCommands.Controllers
     [ApiController]
     public class CommandsController : ControllerBase
     {
-        private readonly MockCommandRepo _repo = new MockCommandRepo();
+        private readonly ICommandRepo _repo;
+
+        public CommandsController(ICommandRepo repo)
+        {
+            _repo = repo;
+        }
         [HttpGet]
         public ActionResult<IEnumerable<Command>> GetAllCommands()
         {
