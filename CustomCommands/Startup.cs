@@ -31,7 +31,7 @@ namespace CustomCommands
 
             services.AddControllers();
 
-            services.AddScoped<ICommandRepo, MockCommandRepo>();
+            services.AddScoped<ICommandRepo, SQLCommandRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
