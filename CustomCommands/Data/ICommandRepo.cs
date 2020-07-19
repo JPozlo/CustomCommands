@@ -8,8 +8,12 @@ namespace CustomCommands.Data
 {
     public interface ICommandRepo
     {
+        bool SaveChanges();
+
         IEnumerable<Command> GetCommands();
 
         Command GetCommand(int id);
+
+        void CreateCommand(Command command);
     }
 }

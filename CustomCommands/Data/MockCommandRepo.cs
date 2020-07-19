@@ -8,6 +8,11 @@ namespace CustomCommands.Data
 {
     public class MockCommandRepo : ICommandRepo
     {
+        public void CreateCommand(Command command)
+        {
+            throw new NotImplementedException();
+        }
+
         public Command GetCommand(int id)
         {
             return new Command { ID = 0, HowTo = "Demo", Line = "Demo LIne", Platform = "THis Machine" };
@@ -22,6 +27,11 @@ namespace CustomCommands.Data
                 new Command { ID = 2, HowTo = "Rice", Line = "Boil Rice", Platform = "Large Pot" }
             };
             return commands;
+        }
+
+        public bool SaveChanges()
+        {
+            throw new NotImplementedException();
         }
     }
 }
