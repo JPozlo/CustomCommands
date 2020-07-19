@@ -13,6 +13,21 @@ namespace CustomCommands.Data
             throw new NotImplementedException();
         }
 
+        public void DeleteCommand(Command command)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteCommands()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteCommands(IEnumerable<Command> commands)
+        {
+            throw new NotImplementedException();
+        }
+
         public Command GetCommand(int id)
         {
             return new Command { ID = 0, HowTo = "Demo", Line = "Demo LIne", Platform = "THis Machine" };
@@ -30,6 +45,11 @@ namespace CustomCommands.Data
         }
 
         public bool SaveChanges()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateCommand(Command command)
         {
             throw new NotImplementedException();
         }

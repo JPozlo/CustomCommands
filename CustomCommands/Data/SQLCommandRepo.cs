@@ -22,6 +22,23 @@ namespace CustomCommands.Data
             _context.Commands.Add(command);
         }
 
+        public void DeleteCommand(Command command)
+        {
+            if (command == null) throw new ArgumentNullException(nameof(command));
+
+            _context.Commands.Remove(command);
+        }
+
+        public void DeleteCommands(IEnumerable<Command> commands)
+        {
+            if (commands is null)
+            {
+                throw new ArgumentNullException(nameof(commands));
+            }
+
+            _context.Commands.RemoveRange(commands);
+        }
+
         public Command GetCommand(int id)
         {
             return _context.Commands.FirstOrDefault(p => p.ID == id);
@@ -35,6 +52,11 @@ namespace CustomCommands.Data
         public bool SaveChanges()
         {
             return (_context.SaveChanges()) >= 0;
+        }
+
+        public void UpdateCommand(Command command)
+        {
+            // Implemented          
         }
     }
 }
