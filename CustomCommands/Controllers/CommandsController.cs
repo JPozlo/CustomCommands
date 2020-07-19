@@ -29,12 +29,26 @@ namespace CustomCommands.Controllers
             return Ok(_mapper.Map<IEnumerable<CommandReadDTO>>(commands));
         }
         
-        [HttpGet("{id}")]
-        public ActionResult <CommandReadDTO> GetCommand(int id)
+        [HttpGet("{id}", Name = "GetCommand")]
+        public ActionResult<CommandReadDTO> GetCommand(int id)
         {
             var command = _repo.GetCommand(id);
             if (command != null) return Ok(_mapper.Map<CommandReadDTO>(command));
             return NotFound();
+        }
+
+        [HttpPost]
+        public ActionResult<CommandReadDTO> CreateCommand(CommandCreateDTO commandCreateDTO)
+        {
+            var commandModel = _mapper.Map<Command>(commandCreateDTO);
+            _repo.CreateCommand(commandModel);
+            _repo.SaveChanges();
+
+            var commandReadDTO = _mapper.Map<CommandReadDTO>(commandModel);
+
+            return CreatedAtRoute(nameof(GetCommand), new { ID = commandReadDTO.ID, commandReadDTO });
+
+            // return Ok(commandReadDTO);
         }
     }
 }
