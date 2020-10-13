@@ -1,4 +1,5 @@
-﻿using CustomCommands.Models;
+﻿using CustomCommands.Helpers;
+using CustomCommands.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,9 @@ namespace CustomCommands.Data
 {
     public class SQLCommandRepo : ICommandRepo
     {
-        private readonly CustomCommandsContext _context;
+        private readonly DataContext _context;
 
-        public SQLCommandRepo(CustomCommandsContext context)
+        public SQLCommandRepo(DataContext context)
         {
             _context = context;
         }
